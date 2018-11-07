@@ -24,8 +24,6 @@ public class Singer {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
 
 	public Singer(String name) {
 		super();

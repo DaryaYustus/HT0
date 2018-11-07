@@ -21,6 +21,7 @@ public class MP3FileUtils {
 
 	private static String MP3_EXTENSION = "mp3";
 
+	// get list of files with mp3 extension under the dir
 	static List getFilesUnderDir(File dir) {
 		File[] listFiles = dir.listFiles();
 		List<MP3File> mp3Files = new ArrayList<MP3File>();
@@ -36,8 +37,7 @@ public class MP3FileUtils {
 		return mp3Files;
 	}
 
-	// Проверяем расширение файла на соответствие расширения вайла переданого из
-	// консоли
+	// chec the extension of file to mp3
 	static boolean checkFileForExtentions(File f) {
 		int i = f.getName().lastIndexOf('.');
 		if (i >= 0) {
@@ -50,6 +50,7 @@ public class MP3FileUtils {
 		return false;
 	}
 
+	// convert file properties to the custom MP3File
 	private static MP3File mp3FileConverter(File file) {
 		MP3File mp3file = new MP3File();
 		try {
@@ -79,7 +80,6 @@ public class MP3FileUtils {
 		} catch (TikaException e) {
 			e.printStackTrace();
 		}
-
 		return mp3file;
 
 	}
