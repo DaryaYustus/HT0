@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Building {
+
 	private String buildingNumber;
 
 	private List<Room> rooms;
@@ -20,7 +21,7 @@ public class Building {
 	public void setRooms(List<Room> rooms) {
 		this.rooms = rooms;
 	}
-	
+
 	public String getBuildingNumber() {
 		return buildingNumber;
 	}
@@ -31,12 +32,12 @@ public class Building {
 
 	@Override
 	public String toString() {
-		StringBuilder result =  new StringBuilder();
+		StringBuilder result = new StringBuilder();
 		result.append("Здание " + buildingNumber + "\n");
-		for(Room room : rooms){
+		for (Room room : rooms) {
 			result.append(room.toString());
 		}
 		return result.toString();
-		
+
 	}
 }

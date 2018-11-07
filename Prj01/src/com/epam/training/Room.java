@@ -33,16 +33,20 @@ public class Room implements Illuminated, Area {
 		illuminations = new ArrayList<Illumination>();
 		this.name = name;
 
+		// min area of the room 1 ì^2
 		this.areaRoom = areaRoom;
 		if (areaRoom == 0) {
 			areaRoom = 1;
 		}
+		
+		//add the several default windows
 		for (int i = 0; i < windowsCount; i++) {
 			addIllumination(new Window());
 		}
 
 	}
-
+	
+	//add any type of furniture to the room
 	public void addFurniture(Furniture furniture)
 			throws SpaceUsageTooMuchException {
 		double filledArea = (calculateArea() + furniture.getArea()) / areaRoom;
@@ -52,7 +56,7 @@ public class Room implements Illuminated, Area {
 			throw new SpaceUsageTooMuchException();
 		}
 	}
-
+	//add any type of illumination (window or Lightbulb) to the room
 	public void addIllumination(Illumination illumination)
 			throws IlluminanceTooMuchException {
 		int filledIllumination = calculateIllumination()
@@ -67,6 +71,7 @@ public class Room implements Illuminated, Area {
 		}
 	}
 
+	//calculate area of furniture
 	@Override
 	public double calculateArea() {
 		double countFurnit = 0;
@@ -76,6 +81,7 @@ public class Room implements Illuminated, Area {
 		return countFurnit;
 	}
 
+	//calculate the illumination in the room
 	@Override
 	public int calculateIllumination() {
 		int countIllumin = 0;
@@ -85,6 +91,7 @@ public class Room implements Illuminated, Area {
 		return countIllumin;
 	}
 
+	//calculate the count of windows
 	private int countOfWindows() {
 		int count = 0;
 		for (Illumination illum : illuminations) {
@@ -111,6 +118,7 @@ public class Room implements Illuminated, Area {
 		this.name = name;
 	}
 
+	//provide necessary presentation of room
 	@Override
 	public String toString() {
 		StringBuilder result = new StringBuilder();
